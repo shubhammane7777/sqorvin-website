@@ -11,7 +11,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base: {
+        // Named "canvas", not "base": Tailwind's default theme already has a
+        // fontSize scale key called "base" (the plain `text-base` = 1rem
+        // utility). A custom color also named "base" collides with it —
+        // Tailwind merges the two into one `.text-base` rule, so every
+        // `text-base`/`sm:text-base` in the app would silently also set
+        // text color to this near-black background color, making that text
+        // invisible on any screen where the responsive size actually
+        // applied. Found this exact bug live: text using `sm:text-base`
+        // rendered in `rgb(5, 7, 13)` (this background color) instead of
+        // its intended `text-ink-soft`/`text-ink`. Keep this token name
+        // clear of every Tailwind default scale keyword (xs, sm, base, lg,
+        // xl, 2xl, ...) to avoid re-introducing the same collision.
+        canvas: {
           DEFAULT: "#05070D", // near-black navy background
           raised: "#0B0F1B", // card / section surface
           raised2: "#101830", // secondary elevated surface (nav, modals)

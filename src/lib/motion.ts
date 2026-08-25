@@ -41,5 +41,24 @@ export const scaleIn: Variants = {
   },
 };
 
-/** Standard viewport config for scroll-triggered reveals: fire once, a little before fully in view. */
-export const revealViewport = { once: true, margin: "-80px" } as const;
+/**
+ * Standard viewport config for scroll-triggered reveals: as soon as ~15% of
+ * the element is on screen.
+ *
+ * Deliberately `once: false` (re-checks every time), not `once: true`.
+ * `once: true` means the reveal gets exactly one chance to fire, driven by
+ * an IntersectionObserver callback — and a fast/instant scroll (a jump to
+ * an anchor link, a very quick trackpad flick, keyboard/screen-reader focus
+ * jumping to a section) can reach the target position without that callback
+ * landing in time. Framer Motion applies the `hidden` state (opacity: 0) as
+ * an inline style the instant the component mounts, unconditionally — if
+ * the one-shot trigger is ever missed, there is no fallback and the content
+ * stays invisible permanently. Verified this exact failure with an instant
+ * `window.scrollTo` jump during development. With `once: false`, a missed
+ * frame just means the next scroll/resize/layout pass re-evaluates it — so
+ * content can only ever be briefly late, never stuck invisible. The only
+ * trade-off is a subtle re-fade if someone scrolls back and forth across the
+ * trigger boundary, which is a much smaller cost than content that can
+ * vanish for good.
+ */
+export const revealViewport = { once: false, amount: 0.15 } as const;

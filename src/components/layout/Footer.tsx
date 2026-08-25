@@ -5,7 +5,7 @@ import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-line bg-base-raised/40">
+    <footer id="contact" className="border-t border-line bg-canvas-raised/40">
       <Container className="grid gap-12 py-16 sm:py-20 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="max-w-xs">
           <Logo />

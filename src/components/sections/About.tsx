@@ -48,7 +48,7 @@ export function About() {
               <motion.span
                 key={skill}
                 variants={fadeUpSmall}
-                className="rounded-full border border-line bg-base-raised px-3 py-1 text-xs text-ink-soft"
+                className="rounded-full border border-line bg-canvas-raised px-3 py-1 text-xs text-ink-soft"
               >
                 {skill}
               </motion.span>

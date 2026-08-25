@@ -33,7 +33,7 @@ export function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-base"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-canvas"
           aria-hidden="true"
         >
           <motion.div

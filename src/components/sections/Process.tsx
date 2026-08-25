@@ -47,7 +47,7 @@ export function Process() {
                 transition={{ delay: i * 0.12 }}
                 className="relative flex gap-5 lg:flex-col lg:gap-0"
               >
-                <div className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-line bg-base font-mono text-sm font-semibold text-accent-cyan shadow-glow lg:mb-6">
+                <div className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-line bg-canvas font-mono text-sm font-semibold text-accent-cyan shadow-glow lg:mb-6">
                   {item.step}
                 </div>
                 <div>

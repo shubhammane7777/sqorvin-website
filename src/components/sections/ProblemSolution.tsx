@@ -24,7 +24,7 @@ export function ProblemSolution() {
             initial="hidden"
             whileInView="visible"
             viewport={revealViewport}
-            className="rounded-2xl border border-line bg-base-raised/40 p-8 lg:rounded-r-none lg:border-r-0"
+            className="rounded-2xl border border-line bg-canvas-raised/40 p-8 lg:rounded-r-none lg:border-r-0"
           >
             <p className="font-mono text-xs uppercase tracking-wider text-ink-faint">Today</p>
             <ul className="mt-5 space-y-4">
@@ -45,7 +45,7 @@ export function ProblemSolution() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={revealViewport}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-line bg-base shadow-glow"
+              className="flex h-14 w-14 items-center justify-center rounded-full border border-line bg-canvas shadow-glow"
             >
               <ArrowRight className="h-5 w-5 rotate-90 text-accent-blue lg:rotate-0" aria-hidden="true" />
             </motion.div>

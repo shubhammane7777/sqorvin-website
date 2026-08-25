@@ -31,7 +31,7 @@ export function WhyChooseUs() {
               <motion.div
                 key={item.title}
                 variants={fadeUp}
-                className="group bg-base-raised p-7 transition-colors duration-300 hover:bg-white/[0.02]"
+                className="group bg-canvas-raised p-7 transition-colors duration-300 hover:bg-white/[0.02]"
               >
                 <Icon className="h-5 w-5 text-accent-blue transition-colors duration-300 group-hover:text-accent-cyan" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-medium text-ink">

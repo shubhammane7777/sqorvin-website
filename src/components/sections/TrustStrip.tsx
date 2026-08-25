@@ -10,7 +10,7 @@ const icons = [Lightbulb, RefreshCw, LayoutDashboard, TrendingUp];
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-line bg-base-raised/30 py-10">
+    <section className="border-y border-line bg-canvas-raised/30 py-10">
       <Container>
         <motion.ul
           variants={staggerContainer(0.08)}

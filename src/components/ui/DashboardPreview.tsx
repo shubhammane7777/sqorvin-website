@@ -59,7 +59,7 @@ export function DashboardPreview() {
       variants={panelVariants}
       initial="hidden"
       animate="visible"
-      className="relative w-full max-w-md rounded-2xl border border-line bg-base-raised/80 shadow-card backdrop-blur-md"
+      className="relative w-full max-w-md rounded-2xl border border-line bg-canvas-raised/80 shadow-card backdrop-blur-md"
     >
       {/* window chrome */}
       <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
