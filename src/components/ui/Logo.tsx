@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Sqorvin mark: three ascending nodes on a rising path inside a rounded
- * square — reads as "growth" and "connected data points" without falling
- * back to a literal chart icon or an AI robot/brain cliché. Used as the
+ * Sqorvin mark: a single flowing "S" — an ownable lettermark tied directly
+ * to the brand name, rather than a generic icon-in-a-rounded-square. No
+ * bounding container: the stroke itself is the mark, so it reads cleanly
+ * at any size from a 16px browser tab to a full-bleed hero use. Used as the
  * favicon source (see public/favicon.svg) and throughout the UI.
  */
 export function LogoMark({ className }: { className?: string }) {
@@ -14,17 +15,12 @@ export function LogoMark({ className }: { className?: string }) {
       className={cn("h-8 w-8", className)}
       aria-hidden="true"
     >
-      <rect width="32" height="32" rx="8" fill="url(#sqorvin-mark-grad)" />
       <path
-        d="M7 20.5L13 14.5L18 18.5L25 10.5"
-        stroke="white"
-        strokeWidth="2.1"
+        d="M23.5 10C23.5 10 22 8 17 8C11.5 8 9 10.2 9 13C9 18 23 14 23 19C23 21.8 20.5 24 15 24C10 24 8.5 22 8.5 22"
+        stroke="url(#sqorvin-mark-grad)"
+        strokeWidth="3.6"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
-      <circle cx="13" cy="14.5" r="1.8" fill="white" />
-      <circle cx="18" cy="18.5" r="1.8" fill="white" />
-      <circle cx="25" cy="10.5" r="1.8" fill="white" />
       <defs>
         <linearGradient
           id="sqorvin-mark-grad"
