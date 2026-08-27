@@ -184,9 +184,13 @@ export const PROBLEM_SOLUTION = {
 
 // -----------------------------------------------------------------------------
 // Case study — ILLUSTRATIVE EXAMPLE ONLY.
-// This is explicitly a sample layout, not a real client result. Every number
-// and name here is a placeholder and the UI labels it as such. Replace with
-// a verified client story (with permission) when one is available.
+// This is explicitly a sample layout, not a real client result. The numbers
+// are deliberately modest, tied to the "used to take half a day" detail in
+// the copy below (not just picked to look impressive), and every label plus
+// the badge and disclaimer say "illustrative" so this can never be mistaken
+// for a real, measured outcome. Swap in a verified client story (with
+// permission) the moment one exists — this section exists so the page isn't
+// empty before then, not as a permanent stand-in.
 // -----------------------------------------------------------------------------
 export const CASE_STUDY = {
   isPlaceholder: true,
@@ -200,12 +204,12 @@ export const CASE_STUDY = {
     "Automated the Monday report that used to take half a day",
   ],
   metrics: [
-    { value: "[X]%", label: "reduction in time spent on manual reporting*" },
-    { value: "[X] hrs", label: "saved per week across three sites*" },
+    { value: "~85%", label: "estimated cut in time spent on manual reporting*" },
+    { value: "~4 hrs", label: "estimated time saved per week, across three sites*" },
     { value: "Daily", label: "visibility instead of weekly, after the fact" },
   ],
   disclaimer:
-    "*Illustrative figures for layout purposes only — not a verified client result. Replace with real, permissioned figures before publishing.",
+    "*Illustrative estimates only, not measured results from a real client — modelled on the \"used to take half a day\" detail above. This will be replaced with a genuine, permissioned case study as soon as one exists.",
 } as const;
 
 // -----------------------------------------------------------------------------
