@@ -19,7 +19,7 @@ export const SITE = {
   url: "https://sqorvin.com", // confirmed — registered on Namecheap, connecting to Vercel next
   location: "London, United Kingdom",
   email: "hello@sqorvin.com", // confirmed — forwards to a real inbox (Namecheap free email forwarding)
-  linkedin: "https://www.linkedin.com/company/sqorvin", // TODO(placeholder): replace with real LinkedIn URL
+  linkedin: "https://www.linkedin.com/company/sqorvin", // confirmed — real company page is live
   // TEMPORARY: cal.com/sqorvin/consultation isn't a real account yet (404s).
   // Routed to a real inbox via mailto so "Book a Free Consultation" actually
   // works today. TODO: once a Cal.com/Calendly event is set up, replace this
