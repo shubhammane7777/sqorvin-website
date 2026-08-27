@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { motion, useReducedMotion, useTransform, useMotionTemplate } from "framer-motion";
 import { HERO, CTA, SITE } from "@/config/site";
 import { Container } from "@/components/ui/Container";
@@ -80,15 +80,39 @@ export function Hero() {
             animate="visible"
             className="font-display text-display-xl font-medium text-ink sm:text-display-2xl"
           >
-            {HERO.headlineLines.map((line, i) => (
-              <motion.span
-                key={line}
-                variants={headlineLine}
-                className={i === HERO.headlineLines.length - 1 ? "block text-gradient-accent" : "block"}
-              >
-                {line}
-              </motion.span>
-            ))}
+            {HERO.headlineLines.map((line, i) => {
+              const isAccentLine = i === HERO.headlineLines.length - 1;
+              return (
+                <motion.span key={line} variants={headlineLine} className="block">
+                  {line.split(" ").map((word, wi, arr) => (
+                    <Fragment key={wi}>
+                      {/*
+                        The gradient class lives on each WORD span, not the
+                        line — a hover-driven `transform` promotes that word
+                        into its own compositing layer, and `background-clip:
+                        text` doesn't carry across a layer boundary from an
+                        ancestor. Put the gradient on the element that's
+                        actually being transformed, or the hovered word
+                        renders invisible (color: transparent with no
+                        gradient behind it). Confirmed by rendering both ways.
+                      */}
+                      <motion.span
+                        whileHover={{ y: -6 }}
+                        transition={{ duration: 0.25, ease: EASE_PREMIUM }}
+                        className={
+                          isAccentLine
+                            ? "inline-block cursor-default text-gradient-accent"
+                            : "inline-block cursor-default"
+                        }
+                      >
+                        {word}
+                      </motion.span>
+                      {wi < arr.length - 1 ? " " : null}
+                    </Fragment>
+                  ))}
+                </motion.span>
+              );
+            })}
           </motion.h1>
 
           <motion.p
