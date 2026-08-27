@@ -43,12 +43,16 @@ export const CTA = {
 
 // -----------------------------------------------------------------------------
 // Live demo — the self-serve "upload your data, get a dashboard" prototype.
-// Self-hosted as a static file at /public/demo.html (a single self-contained
-// page, own bundled copy of SheetJS) so it lives on sqorvin's own domain —
-// no third-party sign-in wall, no external branding on a page prospects see.
+// Self-hosted as a static file at /public/demo/index.html (a single
+// self-contained page, own bundled copy of SheetJS) so it lives on sqorvin's
+// own domain — no third-party sign-in wall, no external branding on a page
+// prospects see. Deliberately index.html inside its own folder, not a loose
+// demo.html at the public root: a bare .html file there collided with how
+// Next's static export maps its own page routes to HTML files on Vercel and
+// 404'd — verified live. A subfolder + index.html avoids that entirely.
 // -----------------------------------------------------------------------------
 export const DEMO = {
-  url: "/demo.html",
+  url: "/demo/",
   navLabel: "Live Demo",
   eyebrow: "Try it yourself",
   headline: "See what your data could look like.",
