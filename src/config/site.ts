@@ -16,7 +16,7 @@ export const SITE = {
   tagline: "Clear data. Confident decisions.",
   description:
     "sqorvin is a London data analytics, AI and business intelligence consultancy helping independent businesses and growing UK companies turn scattered data into automated dashboards and decisions they can trust.",
-  url: "https://sqorvin.com", // TODO(placeholder): confirm production domain
+  url: "https://sqorvin.com", // confirmed — registered on Namecheap, connecting to Vercel next
   location: "London, United Kingdom",
   email: "hello@sqorvin.com", // TODO(placeholder): replace with real inbox
   linkedin: "https://www.linkedin.com/company/sqorvin", // TODO(placeholder): replace with real LinkedIn URL
