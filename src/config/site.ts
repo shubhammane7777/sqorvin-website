@@ -18,14 +18,14 @@ export const SITE = {
     "sqorvin is a London data analytics, AI and business intelligence consultancy helping independent businesses and growing UK companies turn scattered data into automated dashboards and decisions they can trust.",
   url: "https://sqorvin.com", // confirmed — registered on Namecheap, connecting to Vercel next
   location: "London, United Kingdom",
-  email: "hello@sqorvin.com", // TODO(placeholder): replace with real inbox
+  email: "hello@sqorvin.com", // confirmed — forwards to a real inbox (Namecheap free email forwarding)
   linkedin: "https://www.linkedin.com/company/sqorvin", // TODO(placeholder): replace with real LinkedIn URL
   // TEMPORARY: cal.com/sqorvin/consultation isn't a real account yet (404s).
   // Routed to a real inbox via mailto so "Book a Free Consultation" actually
   // works today. TODO: once a Cal.com/Calendly event is set up, replace this
   // with that real booking URL — it's the only line that needs to change.
   bookingUrl:
-    "mailto:hereisshubhammane@gmail.com?subject=Free%20Consultation%20Request%20%E2%80%94%20sqorvin&body=Hi%20Shubham%2C%0A%0AI'd%20like%20to%20book%20a%20free%20consultation.%20Here's%20a%20bit%20about%20what%20I'm%20looking%20for%3A%0A%0A",
+    "mailto:hello@sqorvin.com?subject=Free%20Consultation%20Request%20%E2%80%94%20sqorvin&body=Hi%20Shubham%2C%0A%0AI'd%20like%20to%20book%20a%20free%20consultation.%20Here's%20a%20bit%20about%20what%20I'm%20looking%20for%3A%0A%0A",
 } as const;
 
 export const NAV_LINKS = [
