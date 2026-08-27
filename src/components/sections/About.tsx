@@ -25,14 +25,18 @@ export function About() {
           viewport={revealViewport}
           className="lg:sticky lg:top-28 lg:self-start"
         >
-          {/*
-            Placeholder monogram avatar — deliberately not a stock photo.
-            Swap for a real photo of Shubham once available (see README
-            checklist); the ring/glow treatment is designed to work with
-            a photo too.
-          */}
-          <div className="relative inline-flex h-28 w-28 items-center justify-center rounded-2xl border border-line bg-gradient-to-br from-accent-blue/20 to-accent-violet/20">
-            <span className="font-display text-3xl font-semibold text-ink">SM</span>
+          <div className="relative w-40 sm:w-48">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-1.5 rounded-[20px] bg-gradient-to-br from-accent-blue/40 to-accent-violet/40 opacity-60 blur-lg"
+            />
+            <img
+              src="/shubham-mane.jpg"
+              alt="Shubham Mane, founder of sqorvin"
+              width={500}
+              height={605}
+              className="relative w-full rounded-2xl border border-line object-cover shadow-card"
+            />
           </div>
           <p className="mt-5 font-display text-lg font-medium text-ink">{FOUNDER.name}</p>
           <p className="text-sm text-ink-soft">{FOUNDER.role}</p>
