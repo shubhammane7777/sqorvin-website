@@ -38,11 +38,12 @@ export const CTA = {
 
 // -----------------------------------------------------------------------------
 // Live demo — the self-serve "upload your data, get a dashboard" prototype.
-// Hosted separately (a Claude Artifact), linked from the nav and a dedicated
-// homepage section. Update `url` if the demo is ever redeployed elsewhere.
+// Self-hosted as a static file at /public/demo.html (a single self-contained
+// page, own bundled copy of SheetJS) so it lives on sqorvin's own domain —
+// no third-party sign-in wall, no external branding on a page prospects see.
 // -----------------------------------------------------------------------------
 export const DEMO = {
-  url: "https://claude.ai/code/artifact/3c34ea3f-8147-4da9-87e4-942c77bc4848", // TODO(placeholder): move to a sqorvin.com subpath if/when this gets a permanent home
+  url: "/demo.html",
   navLabel: "Live Demo",
   eyebrow: "Try it yourself",
   headline: "See what your data could look like.",
