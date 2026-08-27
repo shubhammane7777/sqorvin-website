@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Services } from "@/components/sections/Services";
 import { ProblemSolution } from "@/components/sections/ProblemSolution";
+import { DemoCTA } from "@/components/sections/DemoCTA";
 import { CaseStudy } from "@/components/sections/CaseStudy";
 import { Process } from "@/components/sections/Process";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <TrustStrip />
       <Services />
       <ProblemSolution />
+      <DemoCTA />
       <CaseStudy />
       <Process />
       <WhyChooseUs />

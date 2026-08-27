@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS, CTA, SITE } from "@/config/site";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { NAV_LINKS, CTA, SITE, DEMO } from "@/config/site";
 import { useScrolled } from "@/hooks/useScrolled";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
@@ -44,7 +44,20 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <a
+            href={DEMO.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent-blue/60 hover:text-ink"
+            aria-label={`${DEMO.navLabel} (opens in a new tab)`}
+          >
+            {DEMO.navLabel}
+            <ArrowUpRight
+              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </a>
           <Button
             href={SITE.bookingUrl}
             target="_blank"
@@ -90,6 +103,18 @@ export function Navbar() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href={DEMO.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-1.5 rounded-lg px-2 py-3 text-base font-medium text-ink-soft hover:bg-white/[0.03] hover:text-ink"
+                >
+                  {DEMO.navLabel}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </li>
               <li className="pt-2">
                 <Button
                   href={SITE.bookingUrl}

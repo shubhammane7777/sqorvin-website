@@ -37,6 +37,26 @@ export const CTA = {
 } as const;
 
 // -----------------------------------------------------------------------------
+// Live demo — the self-serve "upload your data, get a dashboard" prototype.
+// Hosted separately (a Claude Artifact), linked from the nav and a dedicated
+// homepage section. Update `url` if the demo is ever redeployed elsewhere.
+// -----------------------------------------------------------------------------
+export const DEMO = {
+  url: "https://claude.ai/code/artifact/3c34ea3f-8147-4da9-87e4-942c77bc4848", // TODO(placeholder): move to a sqorvin.com subpath if/when this gets a permanent home
+  navLabel: "Live Demo",
+  eyebrow: "Try it yourself",
+  headline: "See what your data could look like.",
+  subcopy:
+    "Drop in a CSV or Excel export — sales, bookings, stock, whatever you already track — and watch a dashboard build itself in seconds. The same instinct behind every dashboard sqorvin builds, just self-serve.",
+  bullets: [
+    "Works with any CSV or Excel export",
+    "Runs entirely in your browser — nothing is uploaded to a server",
+    "Takes about ten seconds, no sign-up needed",
+  ],
+  cta: "Try the live demo",
+} as const;
+
+// -----------------------------------------------------------------------------
 // Hero
 // -----------------------------------------------------------------------------
 export const HERO = {
