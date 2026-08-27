@@ -33,8 +33,8 @@ export function About() {
             <img
               src="/shubham-mane.jpg"
               alt="Shubham Mane, founder of sqorvin"
-              width={500}
-              height={605}
+              width={700}
+              height={843}
               className="relative w-full rounded-2xl border border-line object-cover shadow-card"
             />
           </div>
