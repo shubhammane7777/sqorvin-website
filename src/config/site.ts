@@ -20,7 +20,12 @@ export const SITE = {
   location: "London, United Kingdom",
   email: "hello@sqorvin.com", // TODO(placeholder): replace with real inbox
   linkedin: "https://www.linkedin.com/company/sqorvin", // TODO(placeholder): replace with real LinkedIn URL
-  bookingUrl: "https://cal.com/sqorvin/consultation", // TODO(placeholder): replace with real booking link (Calendly/Cal.com/etc.)
+  // TEMPORARY: cal.com/sqorvin/consultation isn't a real account yet (404s).
+  // Routed to a real inbox via mailto so "Book a Free Consultation" actually
+  // works today. TODO: once a Cal.com/Calendly event is set up, replace this
+  // with that real booking URL — it's the only line that needs to change.
+  bookingUrl:
+    "mailto:hereisshubhammane@gmail.com?subject=Free%20Consultation%20Request%20%E2%80%94%20sqorvin&body=Hi%20Shubham%2C%0A%0AI'd%20like%20to%20book%20a%20free%20consultation.%20Here's%20a%20bit%20about%20what%20I'm%20looking%20for%3A%0A%0A",
 } as const;
 
 export const NAV_LINKS = [
