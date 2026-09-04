@@ -52,8 +52,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: SITE.name }],
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    // SVG first (modern browsers, crisp at any size); favicon.ico as the
+    // fallback browsers request directly regardless of <link> tags (Safari
+    // tab bar, older browsers); apple-touch-icon for iOS "Add to Home
+    // Screen" — that one needs an opaque background since iOS doesn't
+    // reliably preserve transparency, so it's rendered on the brand navy.
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
