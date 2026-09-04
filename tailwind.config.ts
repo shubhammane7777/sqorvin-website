@@ -31,7 +31,12 @@ const config: Config = {
         ink: {
           DEFAULT: "#F4F6FB", // primary off-white text
           soft: "#9AA4C4", // secondary/muted text
-          faint: "#5B6488", // tertiary/disabled text
+          // Was #5B6488 — measured at 3.03–3.47:1 against the canvas
+          // surfaces (WCAG AA needs 4.5:1 for normal text), found via an
+          // automated axe-core audit. Lightened along the same hue/
+          // saturation to #7C84A7 (4.78–5.48:1 across all three canvas
+          // tokens), keeping it visibly more muted than ink.soft.
+          faint: "#7C84A7", // tertiary/disabled text
         },
         line: {
           DEFAULT: "#1D2540", // default hairline borders

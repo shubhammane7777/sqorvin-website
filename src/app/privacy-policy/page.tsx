@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             This policy covers {SITE.url.replace("https://", "")}, run by Shubham Mane
             trading as sqorvin, {SITE.location}. If you have any question about it,
             email{" "}
-            <a href={`mailto:${SITE.email}`} className="text-accent-blue hover:underline">
+            <a href={`mailto:${SITE.email}`} className="text-accent-blue underline underline-offset-2 decoration-accent-blue/40 hover:decoration-accent-blue">
               {SITE.email}
             </a>
             .
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
             The only way any personal data reaches sqorvin is if you choose to send
             it — for example by using the &ldquo;Book a Free Consultation&rdquo;
             link, which opens your own email app addressed to{" "}
-            <a href={`mailto:${SITE.email}`} className="text-accent-blue hover:underline">
+            <a href={`mailto:${SITE.email}`} className="text-accent-blue underline underline-offset-2 decoration-accent-blue/40 hover:decoration-accent-blue">
               {SITE.email}
             </a>
             . Whatever you write in that email — your name, email address, and any
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
             Under UK GDPR, you can ask to see what data sqorvin holds about you,
             have it corrected, have it deleted, or object to how it&apos;s used.
             Email{" "}
-            <a href={`mailto:${SITE.email}`} className="text-accent-blue hover:underline">
+            <a href={`mailto:${SITE.email}`} className="text-accent-blue underline underline-offset-2 decoration-accent-blue/40 hover:decoration-accent-blue">
               {SITE.email}
             </a>{" "}
             for any of this. If you&apos;re not satisfied with the response, you can
