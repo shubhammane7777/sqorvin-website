@@ -54,24 +54,62 @@ for i, p1 in enumerate(pts):
 for p in pts:
     draw.ellipse([p[0] - 2.5, p[1] - 2.5, p[0] + 2.5, p[1] + 2.5], fill=(*VIOLET, 200))
 
-# --- logo mark (rounded square, gradient, ascending nodes) ---
+# --- logo mark: the actual flowing-S mark (matches public/favicon.svg and
+# Logo.tsx exactly — a single gradient stroke, no bounding box). Traced from
+# that SVG's path in its native 32x32 viewBox, then scaled up here. If the
+# mark in favicon.svg ever changes, re-trace SEGMENTS from its "d" below to
+# keep this in sync — this script does NOT read the SVG automatically.
 mark_size = 84
 mark_x, mark_y = 96, 130
+VIEWBOX = 32
+
+def _cubic_bezier(p0, p1, p2, p3, steps=40):
+    pts = []
+    for i in range(steps + 1):
+        t = i / steps
+        mt = 1 - t
+        x = (mt**3) * p0[0] + 3 * (mt**2) * t * p1[0] + 3 * mt * (t**2) * p2[0] + (t**3) * p3[0]
+        y = (mt**3) * p0[1] + 3 * (mt**2) * t * p1[1] + 3 * mt * (t**2) * p2[1] + (t**3) * p3[1]
+        pts.append((x, y))
+    return pts
+
+# Traced 1:1 from favicon.svg's path:
+# M23.5 10 C23.5 10 22 8 17 8 C11.5 8 9 10.2 9 13 C9 18 23 14 23 19
+#   C23 21.8 20.5 24 15 24 C10 24 8.5 22 8.5 22
+SEGMENTS = [
+    ((23.5, 10), (23.5, 10), (22, 8), (17, 8)),
+    ((17, 8), (11.5, 8), (9, 10.2), (9, 13)),
+    ((9, 13), (9, 18), (23, 14), (23, 19)),
+    ((23, 19), (23, 21.8), (20.5, 24), (15, 24)),
+    ((15, 24), (10, 24), (8.5, 22), (8.5, 22)),
+]
+curve_pts = []
+for p0, p1, p2, p3 in SEGMENTS:
+    curve_pts.extend(_cubic_bezier(p0, p1, p2, p3))
+
+scale = mark_size / VIEWBOX
+stroke_w = max(1, round(3.6 * scale))
 mark_img = Image.new("RGBA", (mark_size, mark_size), (0, 0, 0, 0))
 mark_draw = ImageDraw.Draw(mark_img)
-for i in range(mark_size):
-    t = i / mark_size
+for (x0, y0), (x1, y1) in zip(curve_pts, curve_pts[1:]):
+    # Diagonal gradient matching the SVG's x1=0,y1=0 -> x2=32,y2=32 stops.
+    t = ((x0 + y0) / 2 + (x1 + y1) / 2) / (2 * VIEWBOX)
+    t = max(0.0, min(1.0, t))
     r = int(BLUE[0] + (VIOLET[0] - BLUE[0]) * t)
     g = int(BLUE[1] + (VIOLET[1] - BLUE[1]) * t)
     b = int(BLUE[2] + (VIOLET[2] - BLUE[2]) * t)
-    mark_draw.line([(0, i), (mark_size, i)], fill=(r, g, b, 255))
-mask = Image.new("L", (mark_size, mark_size), 0)
-ImageDraw.Draw(mask).rounded_rectangle([0, 0, mark_size, mark_size], radius=20, fill=255)
-mark_img.putalpha(mask)
-node_pts = [(18, 54), (34, 38), (46, 48), (66, 26)]
-mark_draw.line(node_pts, fill=(255, 255, 255, 255), width=5, joint="curve")
-for p in node_pts[1:]:
-    mark_draw.ellipse([p[0] - 4, p[1] - 4, p[0] + 4, p[1] + 4], fill=(255, 255, 255, 255))
+    mark_draw.line(
+        [(x0 * scale, y0 * scale), (x1 * scale, y1 * scale)],
+        fill=(r, g, b, 255),
+        width=stroke_w,
+    )
+# Round line caps, matching stroke-linecap="round" in the SVG.
+for (x, y) in (curve_pts[0], curve_pts[-1]):
+    cx, cy = x * scale, y * scale
+    mark_draw.ellipse(
+        [cx - stroke_w / 2, cy - stroke_w / 2, cx + stroke_w / 2, cy + stroke_w / 2],
+        fill=(VIOLET[0], VIOLET[1], VIOLET[2], 255),
+    )
 img.paste(mark_img, (mark_x, mark_y), mark_img)
 
 # --- wordmark + tagline ---

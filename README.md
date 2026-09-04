@@ -29,7 +29,9 @@ src/
   app/
     layout.tsx        — fonts, <head> metadata/OG tags, wraps the page in Navbar/Footer/PageLoader
     page.tsx           — assembles all sections in order
-    privacy-policy/     — placeholder page (see checklist)
+    privacy-policy/     — real UK GDPR-scoped policy (see checklist)
+    sitemap.ts           — static sitemap.xml, generated at build time
+    robots.ts            — static robots.txt, generated at build time
     globals.css         — design tokens as CSS variables, reduced-motion base rules
   config/
     site.ts             — ALL editable content (see above)
@@ -42,6 +44,9 @@ src/
   lib/                    — cn() classname helper, shared Framer Motion variants/easing
 scripts/
   generate_og_image.py    — regenerates public/og-image.png if you change the tagline/palette
+                             (traces the logo mark from favicon.svg by hand — if that mark
+                             ever changes, re-trace the SEGMENTS constant at the top of the
+                             logo section to match, or this script will draw a stale one)
 ```
 
 ## Design system
@@ -76,13 +81,15 @@ The build output (`npm run build`) is a fully static site in `./out` — host it
 
 ## Placeholder checklist — replace before launch
 
-- [ ] `SITE.email` in `src/config/site.ts` — currently `hello@sqorvin.com`
-- [ ] `SITE.linkedin` — currently a placeholder LinkedIn URL
-- [ ] `SITE.bookingUrl` — currently a placeholder Cal.com-style link; point this at your real booking page (Calendly, Cal.com, or a contact form)
-- [ ] `SITE.url` — currently `https://sqorvin.com`; set to the real production domain (used for canonical/OG URLs)
-- [ ] `SITE.legalName` — confirm the registered company name if different from "Sqorvin Ltd"
+- [x] `SITE.email` — real inbox, `hello@sqorvin.com` (Namecheap forwarding to a Gmail-hosted address)
+- [x] `SITE.linkedin` — real, live company page
+- [x] `SITE.url` — real production domain, `https://sqorvin.com`, live on Vercel
+- [x] **Founder photo** — real photo in `src/components/sections/About.tsx`, not a placeholder monogram
+- [x] **Privacy Policy** (`src/app/privacy-policy/page.tsx`) — real, UK GDPR-scoped policy describing what the site actually does today (last updated 29 August 2026)
+- [x] **OG image** (`public/og-image.png`) — current, uses the real logo mark
+- [x] `sitemap.xml` / `robots.txt` / Organization structured data (JSON-LD) — added
+- [x] Page analytics — `@vercel/analytics` wired into `layout.tsx` (enable it in the Vercel project dashboard to start seeing numbers)
+- [ ] `SITE.bookingUrl` — still routed to a `mailto:` link as a working stand-in. Point this at a real booking page (Calendly, Cal.com) once that account exists — it's the only line that needs to change.
+- [ ] `SITE.legalName` — currently `"Sqorvin Ltd"`, **unconfirmed**. Decide whether sqorvin is actually registered at Companies House (or trading as a sole trader) and update this to match — search-engine structured data deliberately omits this field until it's confirmed, since it's a factual claim.
 - [ ] **Case study** (`CASE_STUDY` in `site.ts`) — every number and the client description are explicitly illustrative placeholders (labelled as such in the UI). Replace with a real, permissioned client story and real figures once you have one, or remove the section if you'd rather launch without it.
-- [ ] **Founder photo** — the About section currently uses an "SM" monogram instead of a photo (deliberately, rather than a stock photo). Swap in a real photo in `src/components/sections/About.tsx` when you have one.
-- [ ] **Privacy Policy** (`src/app/privacy-policy/page.tsx`) — currently a structural placeholder, not a real policy. Needs a proper UK GDPR-reviewed policy before the site collects any visitor/lead data.
-- [ ] **OG image** (`public/og-image.png`) — regenerate via `python3 scripts/generate_og_image.py` if you change the tagline, palette, or want to add a real founder photo to it.
 - [ ] Confirm the FAQ answers (pricing approach, timelines, data security) still match how you actually plan to work once you're taking on real clients.
