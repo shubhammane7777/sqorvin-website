@@ -83,6 +83,27 @@ export const metadata: Metadata = {
   },
 };
 
+// Organization structured data for search engines. Deliberately omits
+// "legalName" — SITE.legalName is still an unconfirmed placeholder pending
+// Companies House registration, and legalName is a factual claim search
+// engines take at face value. Add it once that's confirmed for real.
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE.name,
+  url: SITE.url,
+  image: `${SITE.url}/og-image.png`,
+  description: SITE.description,
+  email: SITE.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "London",
+    addressCountry: "GB",
+  },
+  areaServed: "GB",
+  sameAs: [SITE.linkedin],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -94,6 +115,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-body">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-accent-blue focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"

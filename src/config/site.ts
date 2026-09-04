@@ -340,6 +340,6 @@ export const FINAL_CTA = {
 // -----------------------------------------------------------------------------
 export const FOOTER = {
   servicesLinks: SERVICES.map((s) => ({ label: s.title, href: `#${s.id}` })),
-  privacyPolicyHref: "/privacy-policy", // TODO(placeholder): add a real privacy policy page/route before launch
+  privacyPolicyHref: "/privacy-policy", // real policy page, live
   copyright: `© ${new Date().getFullYear()} sqorvin. All rights reserved.`,
 } as const;
